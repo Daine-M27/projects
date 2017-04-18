@@ -36,14 +36,14 @@ $('#js-shopping-list-form').submit(function(event) {
     renderList(state, $('.shopping-list'));
 });
 
-$('.shopping-item-toggle').click(function(clicker) {
+$('body').on('click', '.shopping-item-toggle', function(clicker) {
 	clicker.preventDefault();
   //console.log($(this).parent().parent().find('.shopping-item'));
 	$(this).closest('li').find('.shopping-item').toggleClass('shopping-item__checked');
   //console.log($(this).closest('li').find('.shopping-item'));
 });
 
-$('.shopping-item-delete').click(function(event){
+$('body').on('click','.shopping-item-delete', function(event){
   event.preventDefault();
   $(this).closest('li').toggleClass('item-delete');
   $('.item-delete').remove('li');
