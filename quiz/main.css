@@ -53,7 +53,7 @@ text-align: center;
 .score-box{
  font-size: 20px;
 margin: auto;
-margin-top: -200px;
+margin-top: -350px;
 text-align: center; 
 }
 .q-count{
@@ -91,14 +91,13 @@ text-align: center;
 
 
 .lower-center{
-  margin-top: -150px;
   font-size: 18px;
 }
 
 
 .score{
   text-align: center;
-  font-size: 60px;
+  font-size: 360px;
   font-weight: bold;
 }
 

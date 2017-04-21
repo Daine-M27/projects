@@ -15,8 +15,8 @@ var state = { "QuestionList":[
 				"currentQuestionDefault":1,
 				"currentQuestionArrayPositionDefault": 0,
 				"numberCorrectDefault": 0,
-				"numberIncorrectDefault": 0,
-				"userAnswersListDefault": []
+				"numberIncorrectDefault": 0
+				
 				};
 //var questionLength = state.QuestionList.length;
 //Functions
@@ -50,8 +50,8 @@ function nextQuestion(arg) {
 	$('#b').text(state.QuestionList[q].answers[1]);
 	$('#c').text(state.QuestionList[q].answers[2]);
 	$('#d').text(state.QuestionList[q].answers[3]);
-	$('.correct-answer, .qAForm').toggleClass('hidden');
-	setScoreBoard();
+	$('.correct-answer, .qAForm, .center').toggleClass('hidden');
+	
 
 	};  
 
@@ -77,15 +77,21 @@ function correctAnswerScreen(arg) {
 	$('.correct-answer-text').text(state.QuestionList[questionNumber].answers[5]);
 	$('.user-answer-text').text(state.userAnswersList[questionNumber].answerText)
 	if (state.QuestionList[questionNumber].answers[5] == state.userAnswersList[questionNumber].answerText ){ 
-		$('.correct-answer').addClass('green')
-		} else {$('.correct-answer').addClass('red')}
+		$('.correct-answer').addClass('green');
+		$('.titleText').text("Correct").addClass('green');
+		$('.center').toggleClass('hidden')
+		} else {$('.correct-answer').addClass('red');
+				$('.titleText').text("Incorrect").addClass('red');
+				$('.center').toggleClass('hidden')
+			}
+	setScoreBoard();
 };
 
 //shows final result
 function resultScreen(argument) {
 	setScoreBoard();
 	var scoreNumber = (state.numberCorrect / state.totalQuestions)*100
-	$('.correct-answer, .score-box ').toggleClass('hidden');
+	$('.correct-answer, .score-box, .center').toggleClass('hidden');
 	$('.score').text(scoreNumber);
 	if (scoreNumber >= 80){ $('.score').addClass('green')
 		} else if (scoreNumber <= 40) {
@@ -97,11 +103,12 @@ function resultScreen(argument) {
 //bring back home screen
 function startQuizScreen(argument) {
 	$('.center, .left, .right, .startQuiz').toggleClass('hidden');
+	$('.titleText').text("This Again?");
 	state.currentQuestion = state.currentQuestionDefault;
 	state.currentQuestionArrayPosition = state.currentQuestionArrayPositionDefault;
 	state.numberCorrect = state.numberCorrectDefault;
 	state.numberIncorrect = state.numberIncorrectDefault;
-	state.userAnswersList = state.userAnswersListDefault;
+	//state.userAnswersList = state.userAnswersListDefault;
 
 }
 
@@ -140,13 +147,15 @@ $('.next-button').click(function(event) {
 	state.currentQuestionArrayPosition = (state.currentQuestionArrayPosition - 1);
 		resultScreen();
 	}
-	$('.correct-answer').removeClass('red, yellow, green')
+	$('.correct-answer, .titleText').removeClass('red yellow green');
+	//$('.center').toggleClass('hidden')
 })
 
 //new Quiz button
 $('body').on('click', '.new-quiz', function(event) {
 	event.preventDefault();
 	$('.score-box').toggleClass('hidden')
+	state.userAnswersList = [];
+	$('.score').removeClass('red yellow green');
 	startQuizScreen();
-	$('.score').removeClass('red, yellow, green');
 })
