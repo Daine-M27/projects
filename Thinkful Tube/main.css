@@ -1,0 +1,25 @@
+body { background: #0088ca; }
+header { margin-top: 30px;
+	text-align: center; }
+	header a { color: white; text-decoration: none; }
+	header a:hover { color: red; }
+	form { margin-top: 20px;
+		text-align: center; }
+		form, #results { padding: 0 20px;
+		}
+		div .container {
+				margin:	auto;
+				text-align: center;
+				
+			}
+		div .result-image { 
+			display: inline-block;
+			box-sizing: border-box;
+			width: 33.33%;			
+			margin:auto;
+			margin-top: 10px;
+			}
+
+
+
+
