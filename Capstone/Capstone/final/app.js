@@ -52,7 +52,7 @@ function initMap(location){
                 "lightness": 33
             },
             {
-                "gamma": 1
+                "gamma": .5
             }
         ]
     },
@@ -308,6 +308,14 @@ function addMarker(place) {
 
       	}
       });
+
+    $('.submit-button').on('click', function(e) {
+    	e.preventDefault();
+    	searchTerm = ($('#search-box').val());
+      		deleteMarkers();
+      		$('.pas').remove();
+      		performSearch();
+    })
 
     $('body').on({mouseenter: function(){
 			$(this).addClass('bg-eee').removeClass('bg-fff');

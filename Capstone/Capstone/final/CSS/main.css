@@ -14,3 +14,15 @@ html, body {
  .bg-fff{
  	background: #fff;
  }
+
+.input-group-btn .btn {
+    background-color: #1abc9c;
+    border: 1px solid #ddd;
+    color: #ddd;
+    line-height: 18px;
+    height: 35px;
+}
+
+#sidebar{
+	overflow-y: scroll;
+}
