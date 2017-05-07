@@ -56,6 +56,15 @@ function initMap(location){
             }
         ]
     },
+    {
+        "featureType": "administrative.province",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            }
+        ]
+    },
     // {
     //     "featureType": "poi.park",
     //     "elementType": "geometry.fill",
@@ -88,7 +97,7 @@ var starIcon = {
 	path: 'M 125,5 155,90 245,90 175,145 200,230 125,180 50,230 75,145 5,90 95,90 z',
     fillColor: '#1abc9c',
     fillOpacity: 0.8,
-    scale: .2,
+    scale: .1,
     strokeColor: '#ffffff',
     strokeWeight: 2
 };
@@ -96,6 +105,7 @@ var marker = new google.maps.Marker({
 	position: userLoc,
 	icon: starIcon,
 	map: map,
+	animation: google.maps.Animation.BOUNCE,
 	title: "You are here! Or pretty close anyways..."
 });
 }
@@ -143,7 +153,7 @@ function addMarker(place) {
 		position: place.geometry.location,
 		animation: google.maps.Animation.DROP,
 		icon: {
-			url: 'http://www.googlemapsmarkers.com/v1/1abc9c/',
+			url: 'http://www.googlemapsmarkers.com/v1/ /1abc9c/ffffff/ffffff',
 			anchor: new google.maps.Point(10, 10),
 			scaledSize: new google.maps.Size(20, 30)
 		},
